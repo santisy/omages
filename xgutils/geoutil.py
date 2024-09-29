@@ -843,8 +843,8 @@ def chamfer_dist(p1, p2, nopool=False):
 def chamfer_dist_mesh(v1, f1, v2, f2):
     import igl
     # sample 10^6 points for each mesh
-    p1 = sampleMesh(v1, f1, 10**6)
-    p2 = sampleMesh(v2, f2, 10**6)
+    p1 = v1#sampleMesh(v1, f1, 10**6)
+    p2 = v2#sampleMesh(v2, f2, 10**6)
     sqrD1, _, _ = igl.point_mesh_squared_distance(p1, v2, f2)
     sqrD2, _, _ = igl.point_mesh_squared_distance(p2, v1, f1)
     return sqrD1.mean() + sqrD2.mean(), sqrD1, sqrD2
